@@ -22,7 +22,7 @@ laser_continuo = pygame.mixer.Sound ('sources/sounds/laser_continuo.mp3')
 canon_laser = pygame.mixer.Sound ('sources/sounds/canon_laser.mp3')
 fondo = pygame.image.load('sources/images/abduccion_fondo.png').convert()
 goku_rect = goku.get_rect()
-goku_rect.centery(400, 200)
+goku_rect.center = (400, 515)
 
 #5. Inicializamos variables
 
@@ -33,13 +33,13 @@ while True:
             pygame.quit()
             sys.exit()
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT] and goku_rect.left > -35:
         goku_rect.x -= 5
-    if keys[pygame.K_RIGHT]:
+    if keys[pygame.K_RIGHT] and goku_rect.right < 815:
         goku_rect.x += 5
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_UP] and goku_rect.top > 0:
         goku_rect.y -= 5
-    if keys[pygame.K_DOWN]:
+    if keys[pygame.K_DOWN] and goku_rect.bottom < 630:
         goku_rect.y += 5
     
     window.fill (BLACK)
