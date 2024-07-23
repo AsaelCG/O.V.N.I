@@ -1,3 +1,6 @@
+#El juego va a comenzar con una pantalla inicial que diga: presiona cualquier tecla para 
+#continuar, cuando la presione, comenzará el juego al instante.  
+
 #1.importar paqueteria
 import pygame, random
 import sys
@@ -7,6 +10,7 @@ WIDTH = 800
 HEIGHT = 600
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+BLUE = (0, 0, 255)
 FRAMES_PER_SECOND = 30
 N_PIXELS_PER_FRAME = 3
 
@@ -23,6 +27,7 @@ canon_laser = pygame.mixer.Sound ('sources/sounds/canon_laser.mp3')
 fondo = pygame.image.load('sources/images/abduccion_fondo.png').convert()
 goku_rect = goku.get_rect()
 goku_rect.center = (400, 515)
+
 
 #5. Inicializamos variables
 
@@ -41,6 +46,8 @@ while True:
         goku_rect.y -= 5
     if keys[pygame.K_DOWN] and goku_rect.bottom < 630:
         goku_rect.y += 5
+    if keys[pygame.K_SPACE]:
+        pygame.draw.circle(window, BLUE, (400, 300), 50)
     
     window.fill (BLACK)
     window.blit(goku, goku_rect)
